@@ -6,7 +6,13 @@ class Database
 
     public static function createConnection(){
         require "../config.php";
-         return new PDO("mysql:host=$host", $username, $password, $options);
+        try {
+            return new PDO($dsn, $username, $password, $options);
+
+
+        } catch(PDOException $error) {
+            echo $sql . "<br>" . $error->getMessage();
+        }
     }
 
 

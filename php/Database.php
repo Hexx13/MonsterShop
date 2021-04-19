@@ -5,8 +5,8 @@ class Database
 {
 
     private static function createConnection(){
-        $conn= new PDO();
-
+        require "../config.php";
+         return new PDO("mysql:host=$host", $username, $password, $options);
     }
 
 

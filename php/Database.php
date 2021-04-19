@@ -14,5 +14,7 @@ class Database
         }
     }
 
+    public static function createID(){}
+
 
 }

@@ -9,7 +9,6 @@ class Database
         try {
             return new PDO($dsn, $username, $password, $options);
 
-
         } catch(PDOException $error) {
             echo $sql . "<br>" . $error->getMessage();
         }

@@ -52,6 +52,10 @@ class Account
     public static function attemptLogin($username, $password){
         include_once "Database.php";
         $link = Database::createConnection();
+
+        $sql = "select * from account 
+                    where account_username='$username'
+                    and account_Password='$password'";
     }
 
 }

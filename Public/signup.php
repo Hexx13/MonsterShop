@@ -23,15 +23,8 @@
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $usrDetails = array(
-    $username =  $_REQUEST['username'],
-    $password = $_REQUEST['password'],
-    $emailAddress = $_REQUEST['email'],
-    $firstName = $_REQUEST['firstName'],
-    $lastName = $_REQUEST['lastName']);
-
     include_once "../php/Account.php";
-    Account::register(", ",implode($usrDetails));
+    Account::register($_REQUEST['username'],$_REQUEST['password'],$_REQUEST['email'],$_REQUEST['firstName'],$_REQUEST['lastName']);
 }
 ?>
 

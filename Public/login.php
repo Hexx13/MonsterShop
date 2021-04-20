@@ -9,7 +9,7 @@
 
     <input type="submit" value="Sign-Up"><br>
 </form>
-
+test
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

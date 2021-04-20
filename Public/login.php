@@ -1,6 +1,6 @@
 <body>
 
-<form action="login" method="POST">
+<form action="login.php" method="POST">
     <label for="username">Username</label>
     <input type="text"  placeholder="Username: " name="username"><br>
 
@@ -14,7 +14,7 @@
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include_once "../php/Account.php";
-    Account::login($_REQUEST['username'],$_REQUEST['password']);
+    
 }
 ?>
 

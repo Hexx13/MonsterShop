@@ -34,12 +34,21 @@ class Account
     }
 
     public static function attemptLogin($username, $password){
-        include_once "Database.php";
-        $link = Database::createConnection();
+        try {
+            include_once "Database.php";
+            $link = Database::createConnection();
 
-        $sql = "select * from account 
-                    where account_username='$username'
-                    and account_Password='$password'";
+            $sql = "select * from account 
+                    where accountUsername='$username'
+                    and accountPassword='$password'";
+
+            $stmt = $link->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+        catch (PDOException $error){
+            echo $sql . "<br>" . $error->getMessage();
+        }
     }
 
 }

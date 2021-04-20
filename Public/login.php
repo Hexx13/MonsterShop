@@ -1,3 +1,6 @@
+<head>
+    <?php session_start(); ?>
+</head>
 <body>
 
 <form action="login.php" method="POST">

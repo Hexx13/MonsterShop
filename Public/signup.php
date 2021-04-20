@@ -1,3 +1,6 @@
+<head>
+    <?php session_start();session_destroy(); ?>
+</head>
 <body>
 
 <form action="signup.php" method="POST">

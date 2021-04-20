@@ -21,8 +21,8 @@ class Account
 
         $id  = Account::createID("accountId", "account");
 
-        $sql = sprintf("INSERT INTO account (accountId ,accountUsername, accountPassword, accountEmail, firstName, lastName)
-            VALUES  ($id ,'$accountUsername', '$accountPassword', '$accountEmail', '$firstName', '$lastName');");
+        $sql = "INSERT INTO account (accountId ,accountUsername, accountPassword, accountEmail, firstName, lastName)
+            VALUES  ($id ,'$accountUsername', '$accountPassword', '$accountEmail', '$firstName', '$lastName');";
         $statement = $link->prepare($sql);
         $statement->execute($user);
     }

@@ -28,8 +28,14 @@ class Account
 
 
 
-    public static function login($username, $password){
-
+    public static function login($result, $username){
+        if ($result) {
+            $_SESSION["login"] = true;
+            $_SESSION["username"] = $username;
+            header("location:index.php");
+        } else {
+            header(); // need a error header
+        }
 
     }
 

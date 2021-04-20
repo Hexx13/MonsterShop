@@ -43,4 +43,9 @@ class Account
         return $id+1;
     }
 
+
+    public static function login($username, $password){
+        
+    }
+
 }

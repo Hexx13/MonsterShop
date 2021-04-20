@@ -45,13 +45,13 @@ class Account
 
 
     public static function login($username, $password){
-        include_once "Database.php";
-        $link = Database::createConnection();
+
 
     }
 
     public static function attemptLogin($username, $password){
-        
+        include_once "Database.php";
+        $link = Database::createConnection();
     }
 
 }

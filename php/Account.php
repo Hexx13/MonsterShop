@@ -20,7 +20,7 @@ class Account
         $link = Database::createConnection();
 
         $sql = "SELECT $pk FROM $table ORDER BY $pk DESC LIMIT 1";
-
+        $statement = $link->query($sql);
 
     }
 

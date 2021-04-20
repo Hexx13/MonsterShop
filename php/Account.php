@@ -42,9 +42,7 @@ class Account
                     where accountUsername='$username'
                     and accountPassword='$password'";
 
-            $stmt = $link->prepare($sql);
-            $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $link->prepare($sql)->execute()->fetchAll(PDO::FETCH_ASSOC);
         }
         catch (PDOException $error){
             echo $sql . "<br>" . $error->getMessage();

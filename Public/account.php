@@ -1,6 +1,11 @@
 <html>
 <head>
-    <?php session_start(); ?>
+    <?php session_start();
+    include_once "../php/Account.php";
+    $accDetails = Account::getAccountDetails(Account::getIDFromUsername($_SESSION['username']));
+
+    ?>
+
 </head>
 <body>
 <div>
@@ -8,6 +13,7 @@
     <form action="account.php" method="post">
         <label for="username">Username</label>
         <input type="text"  placeholder="Username: " name="username">
+        <label></label>
         <input type="submit" value="change" name="submit">
         <br>
     </form>
@@ -42,7 +48,11 @@
 </div>
 
 
+<?php
 
+
+
+?>
 
 
 

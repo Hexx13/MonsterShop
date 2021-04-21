@@ -67,7 +67,38 @@ class Account
         }catch (PDOException $error){
             echo $sql . "<br>" . $error->getMessage();
         }
+    }
 
+    public static function getAccountDetails($accountId){
+        try {
+            include_once "Database.php";
+            $link = Database::createConnection();
 
+            $sql = "select * from account where accountId='$accountId'";
+
+            $benny = $link->prepare($sql);
+            $benny->execute();
+            return $benny->fetchAll(PDO::FETCH_ASSOC)[0];
+        }
+        catch (PDOException $error){
+            echo $sql . "<br>" . $error->getMessage();
+        }
+    }
+
+    public static function getIDFromUsername($username){
+        try {
+            include_once "Database.php";
+            $link = Database::createConnection();
+
+            $sql = "select * from account where accountUsername='$username'";
+
+            $benny = $link->prepare($sql);
+            $benny->execute();
+            $idArr = $benny->fetchAll(PDO::FETCH_ASSOC);
+            return  $idArr[0]['accountId'];
+        }
+        catch (PDOException $error){
+            echo $sql . "<br>" . $error->getMessage();
+        }
     }
 }

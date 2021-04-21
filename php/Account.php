@@ -27,9 +27,6 @@ class Account
 
     }
 
-
-
-
     public static function login($result, $username){
         if ($result) {
             $_SESSION["login"] = true;
@@ -57,4 +54,20 @@ class Account
         }
     }
 
+    public static function changeDetail($key, $table, $username, $value){
+        include_once "Database.php";
+        $link = Database::createConnection();
+
+        $sql = $sql = "UPDATE $table set $key = '$value' where accountUsername = $username";
+
+        try{
+            $statement = $link->prepare($sql)->execute();
+            header("Location: account.php");
+
+        }catch (PDOException $error){
+            echo $sql . "<br>" . $error->getMessage();
+        }
+
+
+    }
 }

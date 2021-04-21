@@ -16,7 +16,10 @@
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $password = $_REQUEST['password'];
+    $username= $_REQUEST['username'];
     include_once "../php/Account.php";
+    Account::login(Account::attemptLogin($username,$password),$username);
 
 }
 ?>

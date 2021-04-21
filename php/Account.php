@@ -21,8 +21,8 @@ class Account
 
         $sql = "INSERT INTO account (accountId ,accountUsername, accountPassword, accountEmail, firstName, lastName)
             VALUES  ($id ,'$accountUsername', '$accountPassword', '$accountEmail', '$firstName', '$lastName');";
-        $statement = $link->prepare($sql);
-        $statement->execute($user);
+        $statement = $link->prepare($sql)->execute($user);
+
     }
 
 
@@ -48,7 +48,9 @@ class Account
                     where accountUsername='$username'
                     and accountPassword='$password'";
 
-            return $link->prepare($sql)->execute()->fetchAll(PDO::FETCH_ASSOC);
+            $benny = $link->prepare($sql);
+                $benny->execute();
+                return $benny->fetchAll(PDO::FETCH_ASSOC);
         }
         catch (PDOException $error){
             echo $sql . "<br>" . $error->getMessage();

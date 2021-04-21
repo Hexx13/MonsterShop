@@ -28,6 +28,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include_once "../php/Account.php";
     Account::register($_REQUEST['username'],$_REQUEST['password'],$_REQUEST['email'],$_REQUEST['firstName'],$_REQUEST['lastName']);
+
 }
 ?>
 

@@ -19,9 +19,11 @@ class Account
         $user = array($accountUsername,$accountPassword,$accountEmail,$firstName,$lastName);
         $id  = Database::createID("accountId", "account");
 
+
         $sql = "INSERT INTO account (accountId ,accountUsername, accountPassword, accountEmail, firstName, lastName)
             VALUES  ($id ,'$accountUsername', '$accountPassword', '$accountEmail', '$firstName', '$lastName');";
         $statement = $link->prepare($sql)->execute($user);
+        header("Location: login.php");
 
     }
 
@@ -34,7 +36,7 @@ class Account
             $_SESSION["username"] = $username;
             header("location:index.php");
         } else {
-            header(); // need a error header
+            echo "Yeah uh chief those details are wrong"; // need a error header
         }
 
     }

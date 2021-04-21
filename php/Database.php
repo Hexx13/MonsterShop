@@ -32,7 +32,8 @@ class Database
 
         $sql = "SELECT $pk FROM $table ORDER BY $pk DESC LIMIT 1";
         $id = $link->query($sql)->fetch();
-        return $id+1;
+
+        return intval($id['accountId'])+1;
     }
 
 

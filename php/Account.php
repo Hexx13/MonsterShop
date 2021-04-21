@@ -38,7 +38,7 @@ class Account
 
     }
 
-    public static function getDetails($username, $password){
+    public static function attemptLogin($username, $password){
         try {
             include_once "Database.php";
             $link = Database::createConnection();

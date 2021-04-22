@@ -10,13 +10,7 @@
 <body>
 <div>
     <h1>Change account details</h1>
-    <form action="account.php" method="post">
-        <label for="username">Username</label>
-        <input type="text"  placeholder="Username: " name="username">
-        <label></label>
-        <input type="submit" value="change" name="submit">
-        <br>
-    </form>
+
 
     <form action="account.php" method="post">
         <label for="firstName">First Name</label>

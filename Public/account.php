@@ -3,47 +3,28 @@
     <?php session_start();
     include_once "../php/Account.php";
     $accDetails = Account::getAccountDetails(Account::getIDFromUsername($_SESSION['username']));
-
     ?>
 
 </head>
 <body>
 <div>
     <h1>Change account details</h1>
+    <?php
+    include_once "../php/LayoutUtil.php";
+    LayoutUtil::createAccountDetailForm("account.php", $accDetails['accountUsername'],"username","Username: ");
+    LayoutUtil::createAccountDetailForm("account.php", $accDetails['firstName'],"firstName","First Name: ");
+    LayoutUtil::createAccountDetailForm("account.php", $accDetails['lastName'],"lastName","Last Name: ");
+    LayoutUtil::createAccountDetailForm("account.php", $accDetails['accountEmail'], "email","Email: ");
+    LayoutUtil::createAccountDetailForm("account.php", $accDetails['accountPassword'], "password","Password: ");
+
+    ?>
 
 
-    <form action="account.php" method="post">
-        <label for="firstName">First Name</label>
-        <input type="text"  placeholder="First name:" name="firstName">
-        <input type="submit" value="change" name="submit">
-        <br>
-    </form>
-
-    <form action="account.php" method="post">
-        <label for="lastName">Last Name</label>
-        <input type="text" placeholder="Last name:" name="lastName">
-        <input type="submit" value="change" name="submit">
-        <br>
-    </form>
-
-    <form action="account.php" method="post">
-        <label for="email">Email </label>
-        <input type="text" placeholder="Email:" name="email">
-        <input type="submit" value="change" name="submit">
-        <br>
-    </form>
-
-    <form action="account.php" method="post">
-        <label for="password">password</label>
-        <input type="password" placeholder="Password:" name="password">
-        <input type="submit" value="change" name="submit">
-        <br>
-    </form>
 </div>
 
 
 <?php
-
+if($_REQUEST)
 
 
 ?>

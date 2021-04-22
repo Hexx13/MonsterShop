@@ -10,12 +10,14 @@ class LayoutUtil
         echo "</label>";
     }
 
-    public static function createAccountDetailForm($action, $detail, $name){
+    public static function createAccountDetailForm($action, $detail, $name, $label){
         echo '<form action="';
         echo $action;
         echo '" method="post">';
-            echo '<label>Username:</label>';
-            echo self::createLabel($detail);
+        echo self::createLabel($label);
+        echo '<label>';
+            echo $detail."  ";
+            echo '</label>';
             echo'<input type="text" name="';
             echo $name;
             echo '">';

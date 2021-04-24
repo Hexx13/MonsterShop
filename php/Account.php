@@ -58,7 +58,7 @@ class Account
         include_once "Database.php";
         $link = Database::createConnection();
 
-        $sql = $sql = "UPDATE $table set $key = '$value' where accountUsername = $username";
+        $sql = $sql = "UPDATE $table set $key = '$value' where accountUsername = '$username'";
 
         try{
             $statement = $link->prepare($sql)->execute();

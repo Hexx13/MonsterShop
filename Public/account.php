@@ -26,6 +26,10 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
  Account::changeDetail($_REQUEST['secret'], 'account', $_SESSION['username'], $_REQUEST[$_REQUEST['secret']]);
+ if(isset($_REQUEST['accountUsername'])){
+     $_SESSION['username'] = $_REQUEST['accountUsername'];
+ }
+
 }
 
 

@@ -18,10 +18,8 @@ class LayoutUtil
         echo '<label>';
             echo $detail."  ";
             echo '</label>';
-            echo'<input type="text" name="';
-            echo $name;
-            echo '">';
-
+            echo"<input type='text' name='$name'>";
+            echo "<input name='secret' type='hidden' value='$name'>";
             echo'<input type="submit" value="change" name="submit">';
             echo'<br>';
         echo'</form>';

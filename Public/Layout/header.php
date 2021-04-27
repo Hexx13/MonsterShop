@@ -1,12 +1,13 @@
 <header>
+    <?php if($_SESSION["login"] != true){header("location: login.php");}?>
     <div class="rightHead">
-        <a>Home</a>
-        <a>Store</a>
-        <a>About</a>
+        <a href="index.php">Home</a>
+        <a href="store.php">Store</a>
+        <a href="about.php">About</a>
     </div>
     <div class="headSpacer"></div>
     <div class="leftHead">
         <a>shopicon</a>
-        <a>accounticon</a>
+        <a href="account.php">accounticon</a>
     </div>
 </header>

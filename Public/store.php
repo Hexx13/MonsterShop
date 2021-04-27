@@ -16,6 +16,7 @@
                         <?PHP echo $product['productName']; ?>
                         Price -
                         <?PHP echo $product['productPrice']; ?>
+                        €
                     </div>
                 </a>
 

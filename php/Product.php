@@ -8,7 +8,7 @@ class Product
             include_once "Database.php";
             $link = Database::createConnection();
 
-            $sql = "select * from game";
+            $sql = "select * from product";
 
             $benny = $link->prepare($sql);
             $benny->execute();

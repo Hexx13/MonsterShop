@@ -18,6 +18,10 @@
     LayoutUtil::createAccountDetailForm("account.php", $accDetails['accountPassword'], "accountPassword","Password: ");
 
     ?>
+    <form action="account.php">
+        <label>This will pernamently Delete your account WARNING</label>
+        <input type="submit" name="delete" value="Delete Account">
+    </form>
 
 
 </div>

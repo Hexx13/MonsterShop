@@ -31,6 +31,7 @@ class Account
         if ($result) {
             $_SESSION["login"] = true;
             $_SESSION["username"] = $username;
+            $_SESSION["id"]=self::getIDFromUsername($username);
             header("location:index.php");
         } else {
             echo "Yeah uh chief those details are wrong"; // need a error header

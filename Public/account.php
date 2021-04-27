@@ -21,6 +21,7 @@
     <form action="account.php">
         <label>This will pernamently Delete your account WARNING</label>
         <input type="submit" name="delete" value="Delete Account">
+        <input type="hidden" name="secret" value="deleteAcc">
     </form>
 
 
@@ -29,10 +30,15 @@
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
- Account::changeDetail($_REQUEST['secret'], 'account', $_SESSION['username'], $_REQUEST[$_REQUEST['secret']]);
- if(isset($_REQUEST['accountUsername'])){
-     $_SESSION['username'] = $_REQUEST['accountUsername'];
- }
+    if ($_REQUEST['secret']=="deleteAcc"){
+        Account::deleteAccount($_SESSION['id']);
+    } else{
+        Account::changeDetail($_REQUEST['secret'], 'account', $_SESSION['username'], $_REQUEST[$_REQUEST['secret']]);
+        if(isset($_REQUEST['accountUsername'])){
+            $_SESSION['username'] = $_REQUEST['accountUsername'];
+        }
+    }
+
 
 }
 

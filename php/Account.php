@@ -108,7 +108,6 @@ class Account
         $link = Database::createConnection();
 
         $sql="DELETE FROM account WHERE accountId= $id;";
-        var_dump($sql);
         try{
             $statement = $link->prepare($sql)->execute();
             header("Location: signup.php");

@@ -101,4 +101,19 @@ class Account
             echo $sql . "<br>" . $error->getMessage();
         }
     }
+
+    public static function deleteAccount($id){
+        include_once "Database.php";
+        $link = Database::createConnection();
+
+        $sql="DELETE FROM account WHERE accountId= $id;";
+
+        try{
+            $statement = $link->prepare($sql)->execute();
+            header("Location: signup.php");
+        }
+        catch (PDOException $error){
+            echo $sql . "<br>" . $error->getMessage();
+        }
+    }
 }

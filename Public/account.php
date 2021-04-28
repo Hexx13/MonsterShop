@@ -9,6 +9,7 @@
 </head>
 <body>
 <div>
+    <?php include_once "Layout/header.php";?>
     <h1>Change account details</h1>
     <?php
     include_once "../php/LayoutUtil.php";
@@ -27,7 +28,7 @@
 
 
 </div>
-
+<?php include_once "Layout/footer.php"?>
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

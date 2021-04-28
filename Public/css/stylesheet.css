@@ -1,0 +1,38 @@
+body, html{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: antiquewhite;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    color: white;
+}
+footer a, footer a:visited ,header a, header a:visited{
+    margin: 0.5vw;
+    font-size: 2vw;
+    text-decoration: none;
+    color: white;
+}
+
+footer a:hover,header a:hover{
+    color: red;
+}
+
+.headSpacer {
+    flex: 4;
+}
+
+footer{
+    color: white;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+}

@@ -14,7 +14,7 @@
             <h1><?PHP echo $product['productName']; ?></h1><br>
             Price Per Product: <?PHP echo $product['productPrice']; ?> €
         </div>
-        <form action="" method="post">
+        <form action="cart.php" method="post">
             <input type="number" name="amount" value="1">
             <input type="hidden" name="id" value="<?php echo $product['productId']?>">
             <input type="submit" name="addCart" value="Add to Cart">

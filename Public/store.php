@@ -7,7 +7,6 @@
 <main>
         <div class="pageSpacer"></div>
         <div class="pageContainer">
-
             <?PHP include "../php/Product.php";
             $arr = Product::getProductArray();
             foreach ($arr as $product) { ?>
@@ -19,9 +18,7 @@
                         €
                     </div>
                 </a>
-
             <?PHP } ?>
-
         </div>
         <div class="pageSpacer"></div>
 </main>

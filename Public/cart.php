@@ -7,14 +7,7 @@
 include_once "../php/Cart.php";
 cart::initCart();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(isset($_REQUEST['clear'])){
-        cart::clearCart();
-    } if(isset($_REQUEST['changeAmount'])){
-
-        cart::changeAmountCart($_REQUEST['index'],$_REQUEST['amount']);
-    }else {
-        cart::addToCart($_REQUEST['id'], $_REQUEST['amount']);
-    }
+    cart::updateCart();
 }
 ?>
 
@@ -32,7 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <form action="cart.php" method="post">
                     <input type="number" name="amount" value="<?php echo $producto['amount']?>">
                     <input type="hidden" name="index" value="<?php echo $producto['index']?>">
-                    <input type="submit" name="changeAmount" value="Change">
+                    <input type="submit" name="changeAmount" value="Change Amount">
+                    <input type="submit" name="remove" value="Reomve From Cart">
                 </form>
             </div>
     <?PHP } ?>

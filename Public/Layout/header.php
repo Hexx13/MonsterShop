@@ -7,7 +7,7 @@
     </div>
     <div class="headSpacer"></div>
     <div class="leftHead">
-        <a>shopicon</a>
+        <a href="cart.php">shopicon</a>
         <a href="account.php">accounticon</a>
     </div>
 </header>

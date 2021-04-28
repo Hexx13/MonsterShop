@@ -1,5 +1,6 @@
 <html>
 <head>
+    <style>@import "css/stylesheet.css"; </style>
     <?php session_start()?>
 </head>
 <body>
@@ -34,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="submit" name="remove" value="Reomve From Cart">
                 </form>
             </div>
-    <?PHP }  var_dump($_SESSION);var_dump($_SESSION['total'])?>
+    <?PHP }?>
 </div>
 <div class="pageSpacer"></div>
 

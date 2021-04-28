@@ -1,5 +1,6 @@
 <html>
 <head>
+    <style>@import "css/stylesheet.css"; </style>
     <?php session_start();
     include_once "../php/Account.php";
     $accDetails = Account::getAccountDetails(Account::getIDFromUsername($_SESSION['username']));

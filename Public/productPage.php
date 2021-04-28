@@ -1,5 +1,6 @@
 <html>
 <head>
+    <style>@import "css/stylesheet.css"; </style>
     <?php session_start()?>
 </head>
 <body>

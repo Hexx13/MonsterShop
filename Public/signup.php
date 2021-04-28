@@ -1,5 +1,6 @@
 <head>
     <?php session_start();session_destroy(); ?>
+    <style>@import "css/stylesheet.css"; </style>
 </head>
 <body>
 

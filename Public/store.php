@@ -6,7 +6,7 @@
 <?php include_once "Layout/header.php"?>
 <main>
         <div class="pageSpacer"></div>
-        <div class="gameContainer">
+        <div class="pageContainer">
 
             <?PHP include "../php/Product.php";
             $arr = Product::getProductArray();

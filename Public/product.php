@@ -5,7 +5,7 @@
 <body>
 <?php include_once "Layout/header.php";
     include "../php/Product.php";
-    $product =
+    $product = Product::getProduct($_REQUEST['id']);
     ?>
 <main>
     <div class="pageSpacer"></div>

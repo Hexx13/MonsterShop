@@ -10,13 +10,10 @@
 <main>
     <div class="pageSpacer"></div>
     <div class="pageContainer">
-            <a class="productBox" href="product.php?id=<?PHP echo $product['productId']?>" style="background-image:url('<?PHP echo $product['productImgPath'] ?>' )">
-                <div class="productBoxTitle">
-                    <?PHP echo $product['productName']; ?>
-                    <?PHP echo $product['productPrice']; ?>
-                    €
-                </div>
-            </a>
+        <div class="productBoxTitle">
+            <h1><?PHP echo $product['productName']; ?></h1><br>
+            Price Per Product: <?PHP echo $product['productPrice']; ?> €
+        </div>
     </div>
     <div class="pageSpacer"></div>
 </main>

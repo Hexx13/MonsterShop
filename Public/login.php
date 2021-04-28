@@ -11,7 +11,9 @@
     <label for="password">password</label>
     <input type="password" placeholder="Password:" name="password"><br>
 
-    <input type="submit" value="Sign-Up"><br>
+    <input type="submit" value="Sign-In"><br>
+    <label> Dont have account?</label>
+    <a href="signup.php">
 </form>
 
 <?php

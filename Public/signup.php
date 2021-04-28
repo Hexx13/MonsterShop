@@ -22,6 +22,8 @@
     <input type="password" placeholder="Password:" name="password"><br>
 
     <input type="submit" value="Sign-Up"><br>
+    <label> Have account?</label>
+    <a href="login.php">
 </form>
 
 <?php

@@ -6,15 +6,20 @@
 <?php include_once "Layout/header.php";
 include_once "../php/Cart.php";
 cart::initCart();
+cart::sumCartTotal();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     cart::updateCart();
+
+
 }
 ?>
 
 <div class="pageSpacer"></div>
 <div class="pageContainer">
+
     <?PHP include "../php/Product.php";
     $arr = $_SESSION['cart'];
+
     foreach ($arr as $producto) {$product = Product::getProduct($producto['productId']);?>
             <div class="cartBoxTitle">
                 <img src="<?PHP echo $product['productImgPath'] ?>">
@@ -29,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="submit" name="remove" value="Reomve From Cart">
                 </form>
             </div>
-    <?PHP } ?>
+    <?PHP }  var_dump($_SESSION);var_dump($_SESSION['total'])?>
 </div>
 <div class="pageSpacer"></div>
 

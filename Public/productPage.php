@@ -17,6 +17,7 @@
         <form action="cart.php" method="post">
             <input type="number" name="amount" value="1">
             <input type="hidden" name="id" value="<?php echo $product['productId']?>">
+            <input type="hidden" name="price" value="<?php echo $product['productPrice']?>">
             <input type="submit" name="addCart" value="Add to Cart">
         </form>
     </div>

@@ -5,8 +5,8 @@ class cart
 {
     public static function initCart(){
         if(!isset($_SESSION['cart'])) $_SESSION['cart']= array(array());
-    }
 
+    }
     public static function clearCart(){
         $_SESSION['cart']= array();
     }
@@ -22,10 +22,10 @@ class cart
     public static function removeFromCart($index){
         unset($_SESSION['cart'][$index]);
     }
-    public static function addToCart($prodId, $amount){
+    public static function addToCart($prodId, $amount, $price){
         if (isset($_REQUEST['id'], $_REQUEST['amount'])) {
             $arr= $_SESSION['cart'];
-            array_push($arr, array("index" => count($arr), "productId" => intval($prodId), "amount" => intval($amount)));
+            array_push($arr, array("index" => count($arr), "productId" => intval($prodId), "amount" => intval($amount), "price" => intval($price)));
             $_SESSION['cart'] =  $arr;
         }
 
@@ -39,16 +39,16 @@ class cart
         }if(isset($_REQUEST['remove'])){
             cart::removeFromCart($_REQUEST['index']);
         }else {
-            cart::addToCart($_REQUEST['id'], $_REQUEST['amount']);
+            cart::addToCart($_REQUEST['id'], $_REQUEST['amount'], $_REQUEST['price']);
         }
         header("location: cart.php");
     }
     public static function sumCartTotal(){
-        $total =0;
-        include_once "Product.php";
+        $_SESSION['total'] = 0;
         foreach ($_SESSION['cart'] as $productino){
-            for ($i = 0; i < $productino['amount']; $i++){
-                $total = Product::getProduct($productino['productId'])['productPrice'];
+            for ($i = 0; $i < $productino['amount']; $i++){
+                $cash = intval($productino['price']);
+                $_SESSION['total'] += $cash;
             }
         }
     }

@@ -13,8 +13,11 @@
     <div class="pageContainer">
         <div class="productBoxTitle">
             <h1><?PHP echo $product['productName']; ?></h1><br>
+            <img src="<?PHP echo $product['productImgPath']; ?> "><br>
             Price Per Product: <?PHP echo $product['productPrice']; ?> €
+
         </div>
+
         <form action="cart.php" method="post">
             <input type="number" name="amount" value="1">
             <input type="hidden" name="id" value="<?php echo $product['productId']?>">

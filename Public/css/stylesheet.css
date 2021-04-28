@@ -4,16 +4,17 @@ body, html{
     margin: 0;
     padding: 0;
     border: none;
-    background-color: antiquewhite;
+    background-color: #faebd7;
+    text-decoration: none;
 }
-
+a{text-decoration: none}
 header {
     display: flex;
     flex-direction: row;
     background-color: black;
     color: white;
 }
-footer a, footer a:visited ,header a, header a:visited{
+header a, header a:visited{
     margin: 0.5vw;
     font-size: 2vw;
     text-decoration: none;
@@ -36,3 +37,39 @@ footer{
     width: 100%;
     background-color: black;
 }
+
+/* store page*/
+.store {
+    display: flex;
+}
+.storePageContainer{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    flex: 4;
+
+}
+.pageSpacer{
+    flex: 1;
+}
+.productBox{
+    padding: 10px;
+    background-color: #7c746a;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 200px;
+}
+.productBox a, a:visited {
+    color: white;
+}
+.productBoxTitle{
+    font-size: 1vw;
+    text-wrap: none;
+    white-space: nowrap;
+}
+.productBox img{
+    width: 100%;
+}
+

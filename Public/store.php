@@ -5,21 +5,26 @@
 </head>
 <body>
 <?php include_once "Layout/header.php"?>
-<main>
+<main class="store">
         <div class="pageSpacer"></div>
-        <div class="pageContainer">
+        <div class="storePageContainer">
             <?PHP include "../php/Product.php";
             $arr = Product::getProductArray();
             foreach ($arr as $product) { ?>
-                <a class="productBox" href="productPage.php?id=<?PHP echo $product['productId']?>" style="background-image:url('<?PHP echo $product['productImgPath'] ?>' )">
+                <a class="productBox" href="productPage.php?id=<?PHP echo $product['productId']?>">
+                    <img src="<?PHP echo $product['productImgPath'] ?>">
                     <div class="productBoxTitle">
+
                         <?PHP echo $product['productName']; ?>
+                        <br>
                         Price -
                         <?PHP echo $product['productPrice']; ?>
                         €
                     </div>
                 </a>
+
             <?PHP } ?>
+
         </div>
         <div class="pageSpacer"></div>
 </main>

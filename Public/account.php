@@ -25,8 +25,7 @@
         <input type="submit" name="delete" value="Delete Account">
         <input type="hidden" name="secret" value="deleteAcc">
     </form>
-
-
+    <a href="logout.php">Log Out</a>
 </div>
 <?php include_once "Layout/footer.php"?>
 

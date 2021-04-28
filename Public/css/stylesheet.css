@@ -51,9 +51,7 @@ footer{
     flex: 4;
 
 }
-.pageSpacer{
-    flex: 1;
-}
+
 .productBox{
     padding: 10px;
     background-color: #7c746a;
@@ -76,8 +74,22 @@ footer{
 /*Product Page*/
 .pageContainer{
     display: flex;
-
     align-items: center;
     flex-direction: column;
+}
 
+.cartPageContainer{
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+}
+.cartBoxTitle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.cartBoxTitle img{width: 3%}
+
+.pageSpacer{
+    flex: 1;
 }

@@ -43,6 +43,15 @@ class cart
         }
         header("location: cart.php");
     }
+    public static function sumCartTotal(){
+        $total =0;
+        include_once "Product.php";
+        foreach ($_SESSION['cart'] as $productino){
+            for ($i = 0; i < $productino['amount']; $i++){
+                $total = Product::getProduct($productino['productId'])['productPrice'];
+            }
+        }
+    }
 
 
 }

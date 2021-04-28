@@ -23,7 +23,7 @@
 
     <input type="submit" value="Sign-Up"><br>
     <label> Have account?</label>
-    <a href="login.php">
+    <a href="login.php">SIGN UP HERE</a>
 </form>
 
 <?php

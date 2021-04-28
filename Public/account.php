@@ -19,7 +19,7 @@
 
     ?>
     <form action="account.php" method="post">
-        <label>This will pernamently Delete your account WARNING</label>
+        <label>WARNING This will pernamently Delete your account WARNING</label>
         <input type="submit" name="delete" value="Delete Account">
         <input type="hidden" name="secret" value="deleteAcc">
     </form>
@@ -38,11 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $_REQUEST['accountUsername'];
         }
     }
-
-
 }
-
-
 ?>
 
 

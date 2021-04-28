@@ -9,15 +9,18 @@ class cart
 
     public static function clearCart(){
         $_SESSION['cart']= array();
+        header("location: cart.php");
     }
-    public static function changeAmountCart($productId,$newAmount){
+    public static function changeAmountCart($index,$newAmount){
         $cart = $_SESSION['cart'];
         foreach ($cart as $product){
-            if($product['productId'] == $productId){
-                $product['amount'] = $newAmount;
+            if($product['index'] == $index){
+                $_SESSION['cart'][$index]['amount'] = $newAmount;
             }
+
         }
-        $_SESSION['cart'] = $cart;
+
+        header("location: cart.php");
     }
 
     public static function removeFromCart($index){
@@ -28,9 +31,10 @@ class cart
     public static function addToCart($prodId, $amount){
         if (isset($_REQUEST['id'], $_REQUEST['amount'])) {
             $arr= $_SESSION['cart'];
-            array_push($arr, array("index" => count($arr), "productId" => $prodId, "amount" => $amount));
+            array_push($arr, array("index" => count($arr), "productId" => intval($prodId), "amount" => intval($amount)));
             $_SESSION['cart'] =  $arr;
         }
+        header("location: cart.php");
     }
 
 

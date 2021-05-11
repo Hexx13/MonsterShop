@@ -3,23 +3,29 @@
     <style>@import "css/stylesheet.css"; </style>
 </head>
 <body>
+<form action="">
+    <label for="pwd">Password:</label>
+    <input type="password" id="pwd" name="pwd" required pattern=".{8,}" title="Eight or more characters">
+    <input type="submit">
+</form>
+
 
 <form action="signup.php" method="POST">
     <label for="username">Username</label>
-    <input type="text"  placeholder="Username: " name="username"><br>
+    <input type="text" id="username" required pattern=".{3,16}" placeholder="Username: " name="username"><br>
 
     <label for="firstName">First Name</label>
-    <input type="text"  placeholder="First name:" name="firstName"><br>
+    <input type="text"  required pattern="[A-Za-z]{2,}" placeholder="First name:" name="firstName"><br>
 
     <label for="lastName">Last Name</label>
-    <input type="text" placeholder="Last name:" name="lastName"><br>
+    <input type="text" required pattern="[A-Za-z]{2,}" placeholder="Last name:" name="lastName"><br>
 
 
     <label for="email">Email </label>
-    <input type="text" placeholder="Email:" name="email"><br>
+    <input type="text" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" placeholder="Email:" name="email"><br>
 
     <label for="password">password</label>
-    <input type="password" placeholder="Password:" name="password"><br>
+    <input type="password"  required pattern=".{3,}" placeholder="Password:" name="password"><br>
 
     <input type="submit" value="Sign-Up"><br>
     <label> Have account?</label>

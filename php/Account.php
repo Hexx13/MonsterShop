@@ -27,6 +27,23 @@ class Account
 
     }
 
+    private static function validateSignUp(){}
+    
+    //takes column and a value and references against present value returns true if it does not exist already
+    private static function validateDetail($column, $value){
+        include_once "Database.php";
+        $link = Database::createConnection();
+        $sql = "select $column from account";
+
+        $benny = $link->prepare($sql);
+        $benny->execute();
+        $optionArr = $benny->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($optionArr as $array){
+            if($value == $array[$column])return false;
+        }
+        return true;
+    }
+
     public static function login($result, $username){
         if ($result) {
             $_SESSION["login"] = true;
@@ -79,6 +96,7 @@ class Account
 
             $benny = $link->prepare($sql);
             $benny->execute();
+            self::validateDetail('accountUsername');
             return $benny->fetchAll(PDO::FETCH_ASSOC)[0];
         }
         catch (PDOException $error){
@@ -121,6 +139,7 @@ class Account
         session_start();
         return isset($_SESSION['login']);
     }
+
     public static function pageSessionInit(){
         $init = self::verifySession() ? null : header("location: login.php");
     }

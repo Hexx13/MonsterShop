@@ -116,4 +116,12 @@ class Account
             echo $sql . "<br>" . $error->getMessage();
         }
     }
+
+    public static function verifySession(){
+        session_start();
+        return isset($_SESSION['login']);
+    }
+    public static function pageSessionInit(){
+        $init = self::verifySession() ? null : header("location: login.php");
+    }
 }

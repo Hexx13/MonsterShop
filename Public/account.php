@@ -1,9 +1,9 @@
 <html>
 <head>
     <style>@import "css/stylesheet.css"; </style>
-    <?php session_start();
+    <?php
     include_once "../php/Account.php";
-    $accDetails = Account::getAccountDetails(Account::getIDFromUsername($_SESSION['username']));
+    Account::pageSessionInit();
     ?>
 
 </head>
@@ -13,6 +13,7 @@
     <h1>Change account details</h1>
     <?php
     include_once "../php/LayoutUtil.php";
+    $accDetails = Account::getAccountDetails(Account::getIDFromUsername($_SESSION['username']));
     LayoutUtil::createAccountDetailForm("account.php", $accDetails['accountUsername'],"accountUsername","Username: ");
     LayoutUtil::createAccountDetailForm("account.php", $accDetails['firstName'],"firstName","First Name: ");
     LayoutUtil::createAccountDetailForm("account.php", $accDetails['lastName'],"lastName","Last Name: ");

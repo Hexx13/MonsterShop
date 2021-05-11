@@ -1,7 +1,10 @@
 <html>
 <head>
     <style>@import "css/stylesheet.css"; </style>
-    <?php session_start()?>
+    <?php
+    include_once "../php/Account.php";
+    Account::pageSessionInit();
+    ?>
 </head>
 <body>
 <?php include_once "Layout/header.php"?>

@@ -100,7 +100,6 @@ class Account
 
             $benny = $link->prepare($sql);
             $benny->execute();
-            self::validateDetail('accountUsername');
             return $benny->fetchAll(PDO::FETCH_ASSOC)[0];
         }
         catch (PDOException $error){

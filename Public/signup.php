@@ -9,7 +9,10 @@
     <input type="submit">
 </form>
 
-
+    <!-- TODO
+                * Elaborate on the username validation to validate alphanumeric and not allow symbols
+                * Implement a second confirm email form
+     -->
 <form action="signup.php" method="POST">
     <label for="username">Username</label>
     <input type="text" id="username" required pattern=".{3,16}" placeholder="Username: " name="username"><br>

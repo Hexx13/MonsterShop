@@ -13,6 +13,10 @@
     <h1>Change account details</h1>
     <?php
     include_once "../php/LayoutUtil.php";
+
+    /* TODO
+     *  need to replace the code below with validated forms.. so much for the util class..
+     * */
     $accDetails = Account::getAccountDetails(Account::getIDFromUsername($_SESSION['username']));
     LayoutUtil::createAccountDetailForm("account.php", $accDetails['accountUsername'],"accountUsername","Username: ");
     LayoutUtil::createAccountDetailForm("account.php", $accDetails['firstName'],"firstName","First Name: ");

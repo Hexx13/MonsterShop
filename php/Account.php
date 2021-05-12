@@ -27,8 +27,12 @@ class Account
 
     }
 
+
+    //TODO
+    //  * implement detail validation for username, email address if they already exist
+    //  * create a function that validates if the email is a valid option
     private static function validateSignUp(){}
-    
+
     //takes column and a value and references against present value returns true if it does not exist already
     private static function validateDetail($column, $value){
         include_once "Database.php";

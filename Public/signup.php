@@ -9,7 +9,7 @@
      -->
 <form action="signup.php" method="POST">
     <label for="username">Username</label>
-    <input type="text" id="username" required pattern=".{3,16}" placeholder="Username: " name="username"><br>
+    <input type="text" id="username" required pattern="[a-z0-9._%+-]+[a-z0-9.-]+\.[a-z].{3,16}" placeholder="Username: " name="username"><br>
 
     <label for="firstName">First Name</label>
     <input type="text"  required pattern="[A-Za-z]{2,}" placeholder="First name:" name="firstName"><br>

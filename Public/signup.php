@@ -24,7 +24,6 @@
     <label for="email">Confirm Email </label>
     <input type="text" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" placeholder="Confirm Email:" name="emailConf"><br>
 
-
     <label for="password">password</label>
     <input type="password"  required pattern=".{3,}" placeholder="Password:" name="password"><br>
 
@@ -40,7 +39,10 @@
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include_once "../php/Account.php";
-    Account::register($_REQUEST['username'],$_REQUEST['password'],$_REQUEST['email'],$_REQUEST['firstName'],$_REQUEST['lastName']);
+    if(Account::validateSignUp($_REQUEST['password'], $_REQUEST['passwordConf'], $_REQUEST['email'], $_REQUEST['emailConf'])){
+        Account::register($_REQUEST['username'],$_REQUEST['password'],$_REQUEST['email'],$_REQUEST['firstName'],$_REQUEST['lastName']);
+    }
+    else echo "The password confirmation or email confirmation do not match";
 
 }
 ?>

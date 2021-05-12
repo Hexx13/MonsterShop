@@ -29,9 +29,16 @@ class Account
 
 
     //TODO
-    //  * implement detail validation for username, email address if they already exist
-    //  * create a function that validates if the email is a valid option
-    private static function validateSignUp($accountUsername, $accountPassword, $accountEmail, $emailConf, $firstName, $lastName){}
+    //  implement normalization(tolowercase) for username and email
+    //
+    public static function validateSignUp($accountPassword, $passwordConf, $accountEmail, $emailConf){
+        if(self::validateConfirm($accountPassword, $passwordConf)){
+            if(self::validateConfirm($accountEmail, $emailConf)){
+                return true;
+            }
+        }
+        return false;
+    }
 
     private static function validateConfirm($value, $confValue){
         return $value == $confValue;

@@ -10,7 +10,7 @@ class LayoutUtil
         echo "</label>";
     }
 
-    public static function createAccountDetailForm($action, $detail, $name, $label){
+    public static function createAccountDetailForm($action, $detail, $name, $label, $pattern){
         echo '<form action="';
         echo $action;
         echo '" method="post">';
@@ -19,7 +19,7 @@ class LayoutUtil
             echo $detail."  ";
             echo '</label>';
             echo"<input type='text' name='$name'>";
-            echo "<input name='secret' type='hidden' value='$name'>";
+            echo "<input name='secret' type='hidden' required pattern='$pattern' value='$name'>";
             echo'<input type="submit" value="change" name="submit">';
             echo'<br>';
         echo'</form>';

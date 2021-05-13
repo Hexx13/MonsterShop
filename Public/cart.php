@@ -18,26 +18,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <main class="store">
 <div class="pageSpacer"></div>
 <div class="cartPageContainer">
-
     <?PHP include "../php/Product.php";
-    $arr = $_SESSION['cart'];
+    if(isset($_SESSION['cart'][0])){
+            var_dump($_SESSION['cart']);
+        $arr = $_SESSION['cart'];
+        foreach ($arr as $producto) {
+            $product = Product::getProduct($producto['productId']);
+            echo '<div class="cartBoxTitle">';
+                echo '<div class="cartItemInfo">
+                        <img src="'; echo $product['productImgPath']; echo '">';?>
+                        <?PHP echo $product['productName']; ?>
+                        <?PHP echo 'Price:';  echo $product['productPrice']; echo '€
+                    </div>';
+                    echo '<div class="cartItemForm">';
+                        echo '<label for="amount">Quantity</label>';
+                        echo '<form action="cart.php" method="post">';
+                            echo '<input type="number" name="amount" value="'; echo $producto['amount']; echo '">';
+                            echo '<input type="hidden" name="index" value="'; echo $producto['index']; echo'">';
+                            echo '<input type="submit" name="changeAmount" value="Change Amount">';
+                            echo '<input type="submit" name="remove" value="Reomve From Cart">';
+                    echo'</form>';
+                echo '</div>';
+           echo '</div>';?>
+        <?PHP }
+    }else echo "cart is empty";?>
 
-    foreach ($arr as $producto) {$product = Product::getProduct($producto['productId']);?>
-            <div class="cartBoxTitle">
-                <div class="cartItemInfo"><img src="<?PHP echo $product['productImgPath'] ?>">
-                <?PHP echo $product['productName']; ?>
-                    Price: <?PHP echo $product['productPrice']; ?>€</div>
-                <div class="cartItemForm">
-                <label for="amount">Quantity</label>
-                <form action="cart.php" method="post">
-                    <input type="number" name="amount" value="<?php echo $producto['amount']?>">
-                    <input type="hidden" name="index" value="<?php echo $producto['index']?>">
-                    <input type="submit" name="changeAmount" value="Change Amount">
-                    <input type="submit" name="remove" value="Reomve From Cart">
-                </form>
-                </div>
-            </div>
-    <?PHP }?>
+
 
 
     <form method="post" action="cart.php">

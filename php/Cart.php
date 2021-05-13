@@ -4,7 +4,7 @@
 class cart
 {
     public static function initCart(){
-        if(!isset($_SESSION['cart'])) $_SESSION['cart']= array(array());
+        if(!isset($_SESSION['cart'])) $_SESSION['cart']= array();
 
     }
     public static function clearCart(){

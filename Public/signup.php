@@ -9,7 +9,7 @@
      -->
 <form action="signup.php" method="POST">
     <label for="username">Username</label>
-    <input type="text" id="username" required pattern="[a-z0-9._%+-]+[a-z0-9.-]+\.[a-z].{3,16}" placeholder="Username: " name="username"><br>
+    <input type="text" id="username" required pattern="[A-Za-z0-9].{3,16}" placeholder="Username: " name="username"><br>
 
     <label for="firstName">First Name</label>
     <input type="text"  required pattern="[A-Za-z]{2,}" placeholder="First name:" name="firstName"><br>
@@ -39,11 +39,7 @@
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include_once "../php/Account.php";
-    if(Account::validateSignUp($_REQUEST['password'], $_REQUEST['passwordConf'], $_REQUEST['email'], $_REQUEST['emailConf'])){
-        Account::register($_REQUEST['username'],$_REQUEST['password'],$_REQUEST['email'],$_REQUEST['firstName'],$_REQUEST['lastName']);
-    }
-    else echo "The password confirmation or email confirmation do not match";
-
+    Account::register();
 }
 ?>
 

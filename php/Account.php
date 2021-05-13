@@ -4,16 +4,25 @@
 class Account
 {
 
-    /**
-     * This function is a rudimentary version of the final sign-up lacking validation
-     * It takes all parameters neccesary for creating an account and inserts into the database
-     * @param $accountUsername - used to set the username of the account
-     * @param $accountPassword - used to set the password of the account
-     * @param $accountEmail - used to set the email of the account
-     * @param $firstName  -   used to set the first name of the account
-     * @param $lastName - used to set the last name of the account
-     */
-    public static function register($accountUsername, $accountPassword, $accountEmail, $firstName, $lastName){
+    public static function register(){
+        $username = strtolower($_REQUEST['username']);
+        $email = strtolower($_REQUEST['email']);
+        $emailConf = $_REQUEST['emailConf'];
+        if(Account::validateDetail('accountUsername', $username)) {
+            if(Account::validateDetail('accountEmail', $email)){
+                if (Account::validateSignUp($_REQUEST['password'], $_REQUEST['passwordConf'], $email, $emailConf)) {
+                    Account::insertAccount($_REQUEST['username'], $_REQUEST['password'], $_REQUEST['email'], $_REQUEST['firstName'], $_REQUEST['lastName']);
+                    header("Location: login.php");
+                } else echo "The password confirmation or email confirmation do not match";
+            }
+            else echo "The Email is already being used";
+        } else echo  "The Username is already being used";
+
+
+
+
+    }
+    private static function insertAccount($accountUsername, $accountPassword, $accountEmail, $firstName, $lastName){
         include_once "Database.php";
         $link = Database::createConnection();
         $user = array($accountUsername,$accountPassword,$accountEmail,$firstName,$lastName);
@@ -23,15 +32,9 @@ class Account
         $sql = "INSERT INTO account (accountId ,accountUsername, accountPassword, accountEmail, firstName, lastName)
             VALUES  ($id ,'$accountUsername', '$accountPassword', '$accountEmail', '$firstName', '$lastName');";
         $statement = $link->prepare($sql)->execute($user);
-        header("Location: login.php");
-
     }
 
-
-    //TODO
-    //  implement normalization(tolowercase) for username and email
-    //
-    public static function validateSignUp($accountPassword, $passwordConf, $accountEmail, $emailConf){
+    private static function validateSignUp($accountPassword, $passwordConf, $accountEmail, $emailConf){
         if(self::validateConfirm($accountPassword, $passwordConf)){
             if(self::validateConfirm($accountEmail, $emailConf)){
                 return true;

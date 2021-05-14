@@ -44,9 +44,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($_REQUEST['secret']=="deleteAcc"){
         Account::deleteAccount($_SESSION['id']);
     } else{
-        Account::changeDetail($_REQUEST['secret'], 'account', $_SESSION['username'], $_REQUEST[$_REQUEST['secret']]);
-        if(isset($_REQUEST['accountUsername'])){
-            $_SESSION['username'] = $_REQUEST['accountUsername'];
+        if(isset($_REQUEST['accountUsername']) || isset($_REQUEST['accountEmail'])) {
+            if( Account::validateDetail($_REQUEST['secret'], $_REQUEST[$_REQUEST['secret']])){
+                Account::changeDetail($_REQUEST['secret'], 'account', $_SESSION['username'], $_REQUEST[$_REQUEST['secret']]);
+                if (isset($_REQUEST['accountUsername'])) $_SESSION['username'] = $_REQUEST['accountUsername'];
+            } else echo 'This value is already taken by another account';
         }
     }
 }

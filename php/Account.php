@@ -48,7 +48,7 @@ class Account
     }
 
     //takes column and a value and references against present value returns true if it does not exist already
-    private static function validateDetail($column, $value){
+    public static function validateDetail($column, $value){
         include_once "Database.php";
         $link = Database::createConnection();
         $sql = "select $column from account";
@@ -90,11 +90,11 @@ class Account
         }
     }
 
-    public static function changeDetail($key, $table, $username, $value){
+    public static function changeDetail($column, $table, $username, $value){
         include_once "Database.php";
         $link = Database::createConnection();
 
-        $sql = $sql = "UPDATE $table set $key = '$value' where accountUsername = '$username'";
+        $sql = $sql = "UPDATE $table set $column = '$value' where accountUsername = '$username'";
 
         try{
             $statement = $link->prepare($sql)->execute();

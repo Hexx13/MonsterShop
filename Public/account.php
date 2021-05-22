@@ -30,6 +30,9 @@
     ?>
 
 
+
+
+
     <form action="account.php" method="post">
         <label>WARNING This will pernamently Delete your account WARNING</label>
         <input type="submit" name="delete" value="Delete Account">

@@ -33,15 +33,21 @@ class cart
     public static function updateCart(){
         if(isset($_REQUEST['clear'])){
             cart::clearCart();
-        } if(isset($_REQUEST['changeAmount'])){
+            header("location: cart.php");
+        } else if($_REQUEST['purchase']){
+            header("location: payment.php");
 
+        }else if(isset($_REQUEST['changeAmount'])){
             cart::changeAmountCart($_REQUEST['index'],$_REQUEST['amount']);
-        }if(isset($_REQUEST['remove'])){
+            header("location: cart.php");
+        }else if(isset($_REQUEST['remove'])){
             cart::removeFromCart($_REQUEST['index']);
+            header("location: cart.php");
         }else {
             cart::addToCart($_REQUEST['id'], $_REQUEST['amount'], $_REQUEST['price']);
+            header("location: cart.php");
         }
-        header("location: cart.php");
+
     }
     public static function sumCartTotal(){
         $_SESSION['total'] = 0;

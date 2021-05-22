@@ -11,8 +11,6 @@ cart::initCart();
 cart::sumCartTotal();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     cart::updateCart();
-
-
 }
 ?>
 <main class="store">
@@ -20,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="cartPageContainer">
     <?PHP include "../php/Product.php";
     if(isset($_SESSION['cart'][0])){
-            var_dump($_SESSION['cart']);
+
         $arr = $_SESSION['cart'];
         foreach ($arr as $producto) {
             $product = Product::getProduct($producto['productId']);
@@ -49,6 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <form method="post" action="cart.php">
         Total: €<?php echo  $_SESSION['total']?>
         <input type="submit" value="clear cart" name="clear">
+        <input type="submit" value="continue to purchase" name="purchase">
     </form>
 
 </div>

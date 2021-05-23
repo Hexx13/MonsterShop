@@ -15,11 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 <main class="store">
     <div class="pageSpacer"></div>
-    <div class="cartPageContainer">
-
-
-        <!-- TODO implement form for address and payment details -->
-
+    <div class="cartPageContainer">-
         <form method="post" action="purchase.php">
             <input type="text" name="fullname" placeholder="Full Name"><br><br>
             <input type="tel" name="tel" placeholder="Phone Number"><br><br>
